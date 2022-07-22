@@ -34,6 +34,9 @@ public class TestFruit {
         System.out.println("Коробка с фруктами: " + fruitBox_1);
 
         System.out.println(appleBox_1.compare(fruitBox_1));
+        fruitBox_1.compareTo(fruitBox_2);
+        System.out.println(appleBox_1.compareTo(orangeBox_2));
+        System.out.println(orangeBox_1.compareTo(appleBox_1));
 
         System.out.println();
 

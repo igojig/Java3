@@ -1,6 +1,6 @@
 package lesson_1.fruit;
 
-abstract public class Fruit {
+abstract public class Fruit implements Comparable<Fruit> {
     private final String name;
     private final float weight;
 
@@ -18,5 +18,10 @@ abstract public class Fruit {
         return '{' + name + '\'' +
                 ", вес=" + weight +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Fruit o) {
+        return (int)(this.weight-o.weight);
     }
 }
