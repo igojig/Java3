@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class Lesson4 {
 
 
-    public static int COUNT = 10;
+    public static int COUNT = 50;
 
     public static void main(String[] args) {
         PrintSequentially printSequental = new PrintSequentially();
@@ -30,9 +30,9 @@ public class Lesson4 {
             }
         };
 
-        executorService.execute(r1);
-        executorService.execute(r2);
         executorService.execute(r3);
+        executorService.execute(r2);
+        executorService.execute(r1);
 
         executorService.shutdown();
 

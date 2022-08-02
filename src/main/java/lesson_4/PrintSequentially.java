@@ -2,8 +2,15 @@ package lesson_4;
 
 public class PrintSequentially {
 
-    public static final int COUNT = 10;
-    char lastChar = 'C';
+    char lastChar;
+
+    public PrintSequentially(char lastChar) {
+        this.lastChar = lastChar;
+    }
+
+    public PrintSequentially() {
+        this('C');
+    }
 
     void printA() {
         synchronized (this) {
