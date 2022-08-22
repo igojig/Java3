@@ -8,19 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
 public class MainClass {
-    public static final int CARS_COUNT = 4;
+    public static final int CARS_COUNT = 3;
 
     public static void main(String[] args) {
 
         // кол-во потоков + поток main
         CyclicBarrier cyclicBarrier=new CyclicBarrier(CARS_COUNT+1);
+        Semaphore semaphore=new Semaphore(CARS_COUNT/2);
 
 
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
-        Race race = new Race(new Road(60), new Tunnel(), new Road(40));
+        Race race = new Race(new Road(60), new Tunnel(semaphore), new Road(40));
         List<Car> carList=new ArrayList<>(CARS_COUNT);
         for (int i = 0; i < CARS_COUNT; i++) {
             carList.add(new Car(race, 20 + (int) (Math.random() * 10), cyclicBarrier));
