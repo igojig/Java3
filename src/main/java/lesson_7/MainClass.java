@@ -25,6 +25,7 @@ public class MainClass {
 
         MyTestingClass myTestingClass = (MyTestingClass) testClass.newInstance();
 
+
         testMethodList.sort((Comparator.comparingInt(o -> o.getAnnotation(Test.class).priority())));
 
         System.out.println();
